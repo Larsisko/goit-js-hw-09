@@ -47,7 +47,10 @@ function addLeadingZero(value) {
 let countdownInterval = null;
 
 startBtn.addEventListener('click', () => {
-  selectedDateMi = selectedDate.getTime();
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+  let selectedDateMi = selectedDate.getTime();
 
   let timeDifference = selectedDateMi - new Date().getTime();
 
